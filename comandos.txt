@@ -1,0 +1,19 @@
+php config.php
+colocar o arquivo do projeto na pasta C:\xampp\htdocs
+URL: http://localhost/PHP/index.html
+
+
+create table login_acesso (
+    id serial primary key,
+	login varchar(255) not null unique,
+    senha varchar(255) not null
+);
+
+insert into login_acesso (login, senha) values ('teste', '12345');
+
+CREATE TABLE cadastrar_produto (
+    id serial PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    marca VARCHAR(100) NOT NULL,
+    quantidade INT NOT NULL
+);

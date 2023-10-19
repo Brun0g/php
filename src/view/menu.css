@@ -1,0 +1,195 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    /*Display stuff*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Box model stuff*/
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(45deg, cyan, yellow);
+    /*Typography stuff*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    /*Box model stuff*/
+    padding: 8rem;
+    border-radius: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    /*Typography stuff*/
+    text-align: center;
+    color: #fff;
+}
+
+input {
+    /*Display stuff*/
+    display: flex;
+    flex-wrap: wrap;
+    /*Box model stuff*/
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: none;
+    outline: none;
+    /*Typography stuff*/
+    font-size: 1.5rem;
+
+}
+
+.container-form {
+    /*Display stuff*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+
+    /*Box model stuff*/
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: dodgerblue;
+    /*Typography stuff*/
+    font-size: 1.5rem;
+    color: white;
+    /*Miscellaneous*/
+    cursor: pointer;
+}
+
+button:hover {
+    /*Box model stuff*/
+    background-color: deepskyblue;
+}
+
+.overlay {
+    /*Display stuff*/
+    display: none;
+    /*Positioning stuff*/
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    /*Box model stuff*/
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.overlay1 {
+    /*Display stuff*/
+    display: none;
+    /*Positioning stuff*/
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    /*Box model stuff*/
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup {
+    /*Positioning stuff*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    /*Box model stuff*/
+    padding: 10rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    /*Manipulations stuff*/
+    transform: translate(-50%, -50%);
+}
+
+.popup1 {
+    /*Positioning stuff*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    /*Box model stuff*/
+    padding: 10rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    width: 50%;
+    height: 50%;
+
+    /*Manipulations stuff*/
+    transform: translate(-50%, -50%);
+}
+
+.popup h1 {
+    /*Display stuff*/
+    display: flex;
+    justify-content: center;
+}
+
+.popup1 h1 {
+    /*Display stuff*/
+    display: flex;
+    justify-content: center;
+}
+
+.nav-container {
+    /*Box model stuff*/
+    background-color: black;
+    border: 3px solid #fff;
+    /*Typography stuff*/
+    color: #fff;
+
+
+}
+
+.nav-container ul {
+    /*Display stuff*/
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    margin: 0 auto;
+    /*Typography stuff*/
+    font-size: 18px;
+    text-decoration: none;
+    /*Miscellaneous*/
+    list-style: none;
+
+}
+
+.nav-container li {
+    /*Box model stuff*/
+    padding: 5px;
+    text-decoration: none;
+    border: 1px solid #fff;
+
+
+}
+
+.nav-container li a {
+    color: #fff;
+    text-decoration: none;
+
+}
+
+
+
+.close-button {
+
+    /*Positioning stuff*/
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: red;
+    font-weight: bold;
+    font-size: 50px;
+    /*Miscellaneous*/
+    cursor: pointer;
+}
