@@ -64,7 +64,8 @@ input {
 
 .overlay,
 .overlay1,
-.overlay2 {
+.overlay2,
+.overlay4 {
     position: fixed;
     left: 0;
     top: 0;
@@ -85,7 +86,8 @@ input {
     transform: translate(-50%, -50%);
 }
 
-.popup1 {
+.popup1,
+.popup4 {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -99,9 +101,10 @@ input {
 }
 
 .popup h1,
-popup1 h1,
-popup2 h1,
-popup3 h1 {
+.popup1 h1,
+.popup2 h1,
+.popup3 h1,
+.popup4 h1 {
     display: flex;
     justify-content: center;
     color: #fff;
@@ -112,8 +115,8 @@ popup3 h1 {
     background-color: #232323;
     border: 1px solid #ffffff47;
     color: #fff;
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     z-index: 0;
 }
 
@@ -159,7 +162,8 @@ popup3 h1 {
     color: #666;
 }
 
-.excluir-button {
+.excluir-button,
+.excluir-button1 {
     background-color: #f00;
     color: #fff;
     border: none;

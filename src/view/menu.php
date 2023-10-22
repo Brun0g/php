@@ -49,7 +49,8 @@
 }
 
 
-.product {
+.product,
+.estabelecimento {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -62,13 +63,16 @@
 }
 
 .product-name,
+.estabelecimento-name,
+.estabelecimento-info,
 .product-info {
     color: #fff;
     font-size: 14px;
 }
 
 
-.product tr {
+.product tr,
+.estabelecimento tr {
     text-align: center;
     width: 100%;
     justify-content: center;
@@ -76,7 +80,8 @@
     align-content: center;
 }
 
-.product table {
+.product table,
+.estabelecimento table {
     width: 100%;
 }
 
@@ -127,9 +132,18 @@
                 </li>
             </ul>
             <ul>
+                <li> <a href="javascript:void(3);" onclick=openListaEstabelecimentos();>Listagem de Estabelecimentos</a>
+                </li>
+            </ul>
+            <ul>
                 <li> <a href="javascript:void(3);" onclick=openPopup2();>Cadastro de Preços</a>
                 </li>
             </ul>
+            <ul>
+                <li> <a href="javascript:void(3);" onclick=openPopup2();>Menor Preço</a>
+                </li>
+            </ul>
+
         </div>
     </section>
     <div id="overlay" class="overlay" style="display: none">
@@ -206,6 +220,36 @@
                 <input type="number" id="numero_lojas" name="numero_lojas" placeholder="Número de lojas" required>
                 <button type="submit" onclick="enviarEstabelecimentos();">Cadastrar</button>
             </form>
+        </div>
+    </div>
+    <div id="overlay4" class="overlay4" style="display: none">
+        <div id="popup4" class="popup4">
+            <span class="close-button" onclick="closePopup4();">X</span>
+            <h1>Lista de Estabelecimentos</h1>
+            <div class="estabelecimento">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="estabelecimento-name">Empresa</th>
+                            <th class="estabelecimento-info">Endereço</th>
+                            <th class="estabelecimento-info">Cidade</th>
+                            <th class="estabelecimento-info">Lojas</th>
+                            <th class="estabelecimento-info">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Empresa</td>
+                            <td>Endereço</td>
+                            <td>Cidade</td>
+                            <td>Lojas</td>
+                            <td>
+                                <button class="excluir-button1" data-estabelecimento-id="1" onclick="excluirEstabelecimento(this)">Excluir</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div id="mensagem-sucesso" style="display: none">
