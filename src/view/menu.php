@@ -55,17 +55,25 @@
 
 }
 
+
 .product {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     align-content: center;
-
-
+    color: greenyellow;
+    font-size: 14px;
     /* Ajuste a altura máxima conforme necessário */
     text-align: center;
 }
+
+.product-name,
+.product-info {
+    color: #fff;
+    font-size: 14px;
+}
+
 
 .product tr {
     text-align: center;
@@ -77,6 +85,10 @@
 
 .product table {
     width: 100%;
+}
+
+.excluir-button {
+    font-weight: 900;
 }
 </style>
 
@@ -122,7 +134,7 @@
                 </li>
             </ul>
             <ul>
-                <li> <a href="javascript:void(1);" onclick=>Listagem de Estabelecimentos</a>
+                <li> <a href="javascript:void(1);" onclick=>Cadastro de Preços</a>
                 </li>
             </ul>
         </div>
@@ -176,8 +188,8 @@
                 <input type="text" id="nome_fantasia" name="nome_fantasia" placeholder="Nome fantasia" required>
                 <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
                 <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
-                <input type="number" id="numero_lojas" name="numero_lojas" placeholder="Número lojas" required>
-                <button type="submit" onclick=";">Cadastrar</button>
+                <input type="number" id="numero_lojas" name="numero_lojas" placeholder="Número de lojas" required>
+                <button type="submit" onclick="enviarEstabelecimentos();">Cadastrar</button>
             </form>
         </div>
     </div>
