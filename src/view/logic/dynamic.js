@@ -1,26 +1,3 @@
-function openPopup() {
-  document.getElementById("overlay").style.display = "block";
-}
-
-function closePopup() {
-  document.getElementById("overlay").style.display = "none";
-}
-function openPopup1() {
-  document.getElementById("overlay3").style.display = "block";
-}
-
-function closePopup1() {
-  document.getElementById("overlay3").style.display = "none";
-}
-
-function teste() {
-  document.getElementById("overlay1").style.display = "block";
-}
-
-function closeListaProdutos() {
-  document.getElementById("overlay1").style.display = "none";
-}
-
 document.getElementById("botao").addEventListener("submit", function (event) {
   event.preventDefault();
 });
@@ -55,10 +32,6 @@ function enviarFormulario() {
   };
 
   xhr.send("nome=" + nome + "&marca=" + marca + "&quantidade=" + quantidade);
-}
-
-function closeListaProdutos() {
-  document.getElementById("overlay1").style.display = "none";
 }
 
 function openListaProdutos() {
@@ -104,7 +77,6 @@ function openListaProdutos() {
   xhttp.open("GET", "../controllers/listarProdutos.php", true);
   xhttp.send();
 }
-
 function excluirProduto(productId, row) {
   // Fazer uma requisição AJAX para excluir o produto
   var deleteRequest = new XMLHttpRequest();

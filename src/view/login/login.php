@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <form action="../controllers/autenticacao.php" method="POST">
+        <form action="../../controllers/autenticacao.php" method="POST">
             <h1>Login</h1>
             <input type="text" name="login" placeholder="Nome">
             <input type="password" name="senha" placeholder="Senha">

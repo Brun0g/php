@@ -130,11 +130,11 @@
                 </li>
             </ul>
             <ul>
-                <li> <a href="javascript:void(1);" onclick=openPopup1();>Cadastrar Estabelecimentos</a>
+                <li> <a href="javascript:void(2);" onclick=openPopup1();>Cadastrar Estabelecimentos</a>
                 </li>
             </ul>
             <ul>
-                <li> <a href="javascript:void(1);" onclick=>Cadastro de Preços</a>
+                <li> <a href="javascript:void(3);" onclick=openPopup2();>Cadastro de Preços</a>
                 </li>
             </ul>
         </div>
@@ -180,6 +180,29 @@
             </div>
         </div>
     </div>
+    <div id="overlay2" class="overlay2" style="display: none">
+        <div id="popup2" class="popup2">
+            <span class="close-button" onclick="closePopup2();">X</span>
+            <h1>Cadastro de Preço</h1>
+            <form action="processar_cadastro_preco.php" method="post">
+                <label for="produto">Selecione o Produto:</label>
+                <select id="produto" name="produto">
+                    <?php
+                    include '../controllers/nomeProduto.php';
+                    ?>
+                </select>
+                <label for="estabelecimento">Selecione o Estabelecimento:</label>
+                <select id="estabelecimento" name="estabelecimento">
+                    <?php
+                    include '../controllers/nomeEstabelecimento.php';
+                    ?>
+                </select>
+                <label for="preco">Preço:</label>
+                <input type="text" id="preco" name="preco" placeholder="Informe o preço" required>
+                <input type="submit" value="Cadastrar Preço">
+            </form>
+        </div>
+    </div>
     <div id="overlay3" class="overlay3" style="display: none">
         <div id="popup3" class="popup3">
             <span class="close-button" onclick=closePopup1()>X</span>
@@ -193,14 +216,15 @@
             </form>
         </div>
     </div>
-
     <div id="mensagem-sucesso" style="display: none">
         <p>Formulário enviado com sucesso!</p>
         <i class="fa fa-check-circle"></i>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="logic/dynamic.js">
 
-    <script src="dynamic.js"> </script>
+    </script>
+    <script src="logic/botao.js"></script>
 </body>
 
 </html>
