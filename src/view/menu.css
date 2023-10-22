@@ -3,48 +3,45 @@ html {
 }
 
 body {
-    /*Display stuff*/
     display: flex;
     align-items: center;
     justify-content: center;
-    /*Box model stuff*/
     height: 100vh;
     margin: 0;
     background-image: linear-gradient(45deg, rgb(35, 169, 169), rgb(151, 151, 50));
-    /*Typography stuff*/
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
-    /*Box model stuff*/
-    padding: 8rem;
-    border-radius: 1.5rem;
-    background-color: rgba(0, 0, 0, 0.9);
-    /*Typography stuff*/
-    text-align: center;
-    color: #fff;
-
+button {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: greenyellow;
+    color: black;
+    cursor: pointer;
 }
 
 input {
-    /*Display stuff*/
-
-    /*Box model stuff*/
     width: 100%;
     padding: 1.5rem;
     border: none;
     margin: 5px;
     color: greenyellow;
-
-    /*Typography stuff*/
     font-size: 1.5rem;
     background-color: #3c3c3c;
+}
 
-
+.container {
+    padding: 8rem;
+    border-radius: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    color: #fff;
 }
 
 .container-form {
-    /*Display stuff*/
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -59,100 +56,61 @@ input {
 
 .container-form button:hover {
     background-color: black;
-    box-shadow: 0 0 10px rgb(173, 255, 47, 0.9);
+    box-shadow: 0 0 10px rgba(173, 255, 47, 0.9);
     color: greenyellow;
     border-radius: 5px;
     transition: all ease-in-out 0.5s;
 }
 
-
-button {
-    /*Box model stuff*/
-    width: 100%;
-    margin-top: 1.5rem;
-    padding: 1.5rem;
-    border: none;
-    border-radius: 1rem;
-    background-color: greenyellow;
-    /*Typography stuff*/
-
-    color: black;
-    /*Miscellaneous*/
-    cursor: pointer;
-}
-
-
-.overlay {
-    /*Display stuff*/
-    /*Positioning stuff*/
+.overlay,
+.overlay1,
+.overlay2 {
     position: fixed;
     left: 0;
     top: 0;
-
-    /*Box model stuff*/
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.overlay1 {
-    /*Display stuff*/
-    /*Positioning stuff*/
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    /*Box model stuff*/
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 .popup,
+.popup2,
 .popup3 {
-    /*Positioning stuff*/
     position: absolute;
     left: 50%;
     top: 50%;
-    /*Box model stuff*/
     padding: 10rem;
     border-radius: 1rem;
     background-color: #232323;
-    /*Manipulations stuff*/
     transform: translate(-50%, -50%);
 }
 
 .popup1 {
-    /*Positioning stuff*/
     position: absolute;
     left: 50%;
     top: 50%;
-    /*Box model stuff*/
     padding: 10rem;
     border-radius: 1rem;
     background-color: #232323;
     width: 60%;
     height: 60%;
     overflow-y: scroll;
-    /*Manipulations stuff*/
     transform: translate(-50%, -50%);
 }
 
 .popup h1,
-.popup1 h1,
-.popup3 h1 {
-    /*Display stuff*/
+popup1 h1,
+popup2 h1,
+popup3 h1 {
     display: flex;
     justify-content: center;
     color: #fff;
 }
 
 .nav-container {
-    /*Box model stuff*/
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
     background-color: #232323;
     border: 1px solid #ffffff47;
-    /*Typography stuff*/
     color: #fff;
     width: 50%;
     height: 50%;
@@ -160,44 +118,33 @@ button {
 }
 
 .nav-container ul {
-    /*Display stuff*/
     display: flex;
     justify-content: center;
     text-align: center;
     justify-items: center;
     margin: 0 auto;
-    /*Typography stuff*/
     font-size: 18px;
     text-decoration: none;
-    /*Miscellaneous*/
     list-style: none;
 }
 
 .nav-container li {
-    /*Box model stuff*/
     padding: 5px;
     text-decoration: none;
-    border: 1px solid #fff;
-
-
 }
 
 .nav-container li a {
     color: #fff;
     text-decoration: none;
-
 }
 
 .close-button {
-
-    /*Positioning stuff*/
     position: absolute;
     right: 1rem;
     top: 1rem;
     color: red;
     font-weight: bold;
     font-size: 50px;
-    /*Miscellaneous*/
     cursor: pointer;
 }
 
@@ -254,7 +201,6 @@ button {
     height: 85px;
     border-radius: 50%;
     object-fit: cover;
-
 }
 
 .nome-perfil {
@@ -303,91 +249,7 @@ button {
 }
 
 .cont-dynamic-item a:hover {
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
     font-size: 20px;
-    font-weight: 900;
     color: greenyellow;
-
-
-}
-
-
-/* Estilo para o overlay */
-.overlay2 {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fundo semitransparente */
-    z-index: 999;
-    /* Garante que o overlay esteja na parte superior */
-}
-
-/* Estilo para o popup */
-.popup2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #232323;
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 100%;
-
-}
-
-/* Estilo para o título do popup */
-.popup2 h1 {
-    font-size: 24px;
-    margin: 0;
-    padding: 0;
-}
-
-/* Estilo para os labels */
-.popup2 label {
-    display: block;
-    margin-top: 10px;
-    color: #fff;
-    font-size: 16px;
-}
-
-/* Estilo para os selects e inputs */
-.popup2 select,
-.popup2 input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* Estilo para o botão de submit */
-.popup2 input[type="submit"] {
-    background-color: #0074d9;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 100%;
-    padding: 1.5rem;
-    border: none;
-    /*Typography stuff*/
-    font-size: 1.5rem;
-    background-color: greenyellow;
-    font-weight: 900;
-}
-
-/* Estilo para o botão de submit quando hover (passar o mouse por cima) */
-.popup2 input[type="submit"]:hover {
-    background-color: black;
-    box-shadow: 0 0 10px rgb(173, 255, 47, 0.9);
-    color: greenyellow;
-    border-radius: 5px;
-    transition: all ease-in-out 0.5s;
 }

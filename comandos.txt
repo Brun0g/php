@@ -25,3 +25,10 @@ id  serial primary key,
  cidade text(255) not null,
  numero_lojas int not null
 );
+
+CREATE TABLE cadastro_preco (
+    id serial PRIMARY KEY,
+    produto VARCHAR(255) NOT NULL,
+    estabelecimento VARCHAR(255) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);

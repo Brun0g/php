@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Produto</title>
     <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../view/cadastrarPreco/preco.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
-    <!-- MDB -->
-    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet">
 </head>
 <style>
 .product-container {
@@ -174,7 +167,6 @@
                                 <button class="excluir-button" data-product-id="1" onclick="excluirProduto(this)">Excluir</button>
                             </td>
                         </tr>
-                        <!-- Outras linhas da tabela podem ser adicionadas dinamicamente via JavaScript -->
                     </tbody>
                 </table>
             </div>
@@ -184,7 +176,7 @@
         <div id="popup2" class="popup2">
             <span class="close-button" onclick="closePopup2();">X</span>
             <h1>Cadastro de Preço</h1>
-            <form action="processar_cadastro_preco.php" method="post">
+            <form action="processar_cadastro_preco.php" method="post" id="botao2">
                 <label for="produto">Selecione o Produto:</label>
                 <select id="produto" name="produto">
                     <?php
@@ -199,7 +191,7 @@
                 </select>
                 <label for="preco">Preço:</label>
                 <input type="text" id="preco" name="preco" placeholder="Informe o preço" required>
-                <input type="submit" value="Cadastrar Preço">
+                <button class="button5" type="submit" onclick="enviarPreco();">Cadastrar</button>
             </form>
         </div>
     </div>

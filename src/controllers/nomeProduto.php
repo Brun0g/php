@@ -9,7 +9,7 @@ $productData = [];
 
 if ($resultProdutos->num_rows > 0) {
     while ($row = $resultProdutos->fetch_assoc()) {
-        echo '<option value="'.$row['id'].'">'.$row['nome'].'</option>';
+        echo '<option value="'.$row['nome'].'">'.$row['nome'].'</option>';
     }
 }
 

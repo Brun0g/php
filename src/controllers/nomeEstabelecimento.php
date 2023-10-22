@@ -10,7 +10,7 @@ $productData1 = [];
 
 if ($resultEstabelecimentos->num_rows > 0) {
     while ($row = $resultEstabelecimentos->fetch_assoc()) {
-        echo '<option value="'.$row['id'].'">'.$row['nome_fantasia'].'</option>';
+        echo '<option value="'.$row['nome_fantasia'].'">'.$row['nome_fantasia'].'</option>';
     }
 }
 

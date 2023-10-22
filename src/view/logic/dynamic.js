@@ -1,7 +1,12 @@
 document.getElementById("botao").addEventListener("submit", function (event) {
   event.preventDefault();
 });
-
+document.getElementById("botao1").addEventListener("submit", function (event) {
+  event.preventDefault();
+});
+document.getElementById("botao2").addEventListener("submit", function (event) {
+  event.preventDefault();
+});
 function enviarFormulario() {
   // Coletar dados do formulário
   const nome = document.getElementById("nome").value;
@@ -33,7 +38,6 @@ function enviarFormulario() {
 
   xhr.send("nome=" + nome + "&marca=" + marca + "&quantidade=" + quantidade);
 }
-
 function openListaProdutos() {
   // Fazer uma requisição AJAX para buscar os dados do servidor
   var xhttp = new XMLHttpRequest();
@@ -92,9 +96,6 @@ function excluirProduto(productId, row) {
 
   deleteRequest.send(formData);
 }
-document.getElementById("botao1").addEventListener("submit", function (event) {
-  event.preventDefault();
-});
 function enviarEstabelecimentos() {
   // Coletar dados do formulário
   const nome_fantasia = document.getElementById("nome_fantasia").value;
@@ -126,4 +127,35 @@ function enviarEstabelecimentos() {
   };
 
   xhr.send("nome_fantasia=" + nome_fantasia + "&endereco=" + endereco + "&cidade=" + cidade + "&numero_lojas=" + lojas);
+}
+function enviarPreco() {
+  // Coletar dados do formulário
+  const produto = document.getElementById("produto").value;
+  const estabelecimento = document.getElementById("estabelecimento").value;
+  const preco = document.getElementById("preco").value;
+
+  // Enviar dados via AJAX
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "../controllers/processar_cadastro_preco.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      if (xhr.responseText === "success") {
+        const mensagemSucesso = document.getElementById("mensagem-sucesso");
+        const manter = document.getElementById("overlay2");
+
+        mensagemSucesso.style.display = "block";
+        manter.style.display = "block";
+
+        setTimeout(function () {
+          mensagemSucesso.style.display = "none";
+        }, 1500);
+      } else {
+        alert("Erro ao cadastrar o produto: " + xhr.responseText);
+      }
+    }
+  };
+
+  xhr.send("produto=" + produto + "&estabelecimento=" + estabelecimento + "&preco=" + preco);
 }
