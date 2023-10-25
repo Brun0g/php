@@ -2,17 +2,16 @@
 
 include '../model/config.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $produto = $_POST['produto'];
-    $estabelecimento = $_POST['estabelecimento'];
+    $produto_id = $_POST['produto'];
+    $estabelecimento_id = $_POST['estabelecimento'];
     $preco = $_POST['preco'];
 
-    $query = 'INSERT INTO cadastro_preco (produto, estabelecimento, preco) VALUES (?, ?, ?)';
+    $query = 'INSERT INTO cadastro_preco (produto_id, estabelecimento_id, preco) VALUES (?, ?, ?)';
 
     $stmt = $dbConnection->prepare($query);
 
     if ($stmt) {
-        $stmt->bind_param('ssi', $produto, $estabelecimento, $preco);
-
+        $stmt->bind_param('iii', $produto_id, $estabelecimento_id, $preco);
         if ($stmt->execute()) {
             echo 'success';
         } else {

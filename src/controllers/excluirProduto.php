@@ -3,11 +3,11 @@
 // Inclua o arquivo de conexão com o banco de dados
 require_once '../model/config.php';
 
-if (isset($_POST['Id'])) {
-    $product_id = $_POST['Id'];
+if (isset($_POST['id'])) {
+    $product_id = $_POST['id'];
 
     // Crie a consulta SQL e prepare-a
-    $query = 'DELETE FROM cadastrar_produto WHERE Id = ?';
+    $query = 'DELETE FROM cadastrar_produto WHERE id = ?';
     $stmt = $dbConnection->prepare($query);
 
     // Verifique se a preparação da consulta foi bem-sucedida
