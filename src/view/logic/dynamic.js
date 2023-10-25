@@ -9,10 +9,18 @@ document.getElementById("botao2").addEventListener("submit", function (event) {
 });
 function enviarFormulario() {
   // Coletar dados do formulário
-  const nome = document.getElementById("nome").value;
-  const marca = document.getElementById("marca").value;
-  const quantidade = document.getElementById("quantidade").value;
+  const nomeInput = document.getElementById("nome");
+  const marcaInput = document.getElementById("marca");
+  const quantidadeInput = document.getElementById("quantidade");
 
+  const nome = nomeInput.value;
+  const marca = marcaInput.value;
+  const quantidade = quantidadeInput.value;
+
+  // Verificar se algum campo está em branco
+  if (nome === "" || marca === "" || quantidade === "") {
+    return; // Impede o envio do formulário
+  }
   // Enviar dados via AJAX
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "../controllers/cadastro.php", true);
@@ -21,6 +29,11 @@ function enviarFormulario() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       if (xhr.responseText === "success") {
+        // Limpar os campos após o envio bem-sucedido
+        nomeInput.value = "";
+        marcaInput.value = "";
+        quantidadeInput.value = "";
+
         const mensagemSucesso = document.getElementById("mensagem-sucesso");
         const manter = document.getElementById("overlay");
 
@@ -38,6 +51,7 @@ function enviarFormulario() {
 
   xhr.send("nome=" + nome + "&marca=" + marca + "&quantidade=" + quantidade);
 }
+
 function openListaProdutos() {
   // Fazer uma requisição AJAX para buscar os dados do servidor
   var xhttp = new XMLHttpRequest();
@@ -113,19 +127,45 @@ function excluirEstabelecimento(estabelecimentoId, row) {
 }
 function enviarEstabelecimentos() {
   // Coletar dados do formulário
-  const nome_fantasia = document.getElementById("nome_fantasia").value;
-  const endereco = document.getElementById("endereco").value;
-  const cidade = document.getElementById("cidade").value;
-  const lojas = document.getElementById("numero_lojas").value;
+  const nome_fantasiaInput = document.getElementById("nome_fantasia");
+  const enderecoInput = document.getElementById("endereco");
+  const cidadeInput = document.getElementById("cidade");
+  const lojasInput = document.getElementById("numero_lojas");
 
-  // Enviar dados via AJAX
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "../controllers/cadastrarLojas.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  const nome_fantasia = nome_fantasiaInput.value;
+  const endereco = enderecoInput.value;
+  const cidade = cidadeInput.value;
+  const lojas = lojasInput.value;
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      if (xhr.responseText === "success") {
+  if (nome_fantasia === "" || endereco === "" || cidade === "" || lojas === "") {
+    return; // Impede o envio do formulário
+  }
+
+  // Construir um objeto FormData para enviar os dados
+  const formData = new FormData();
+  formData.append("nome_fantasia", nome_fantasia);
+  formData.append("endereco", endereco);
+  formData.append("cidade", cidade);
+  formData.append("numero_lojas", lojas);
+
+  // Enviar dados via Fetch API
+  fetch("../controllers/cadastrarLojas.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("A solicitação falhou");
+      }
+      return response.text();
+    })
+    .then((data) => {
+      if (data === "success") {
+        nome_fantasiaInput.value = "";
+        enderecoInput.value = "";
+        cidadeInput.value = "";
+        lojasInput.value = "";
+
         const mensagemSucesso = document.getElementById("mensagem-sucesso");
         const manter = document.getElementById("overlay3");
 
@@ -136,19 +176,27 @@ function enviarEstabelecimentos() {
           mensagemSucesso.style.display = "none";
         }, 1500);
       } else {
-        alert("Erro ao cadastrar o produto: " + xhr.responseText);
+        alert("Erro ao cadastrar o produto: " + data);
       }
-    }
-  };
-
-  xhr.send("nome_fantasia=" + nome_fantasia + "&endereco=" + endereco + "&cidade=" + cidade + "&numero_lojas=" + lojas);
+    })
+    .catch((error) => {
+      console.error("Erro: " + error);
+    });
 }
+
 function enviarPreco() {
   // Coletar dados do formulário
-  const produto = document.getElementById("produto").value;
-  const estabelecimento = document.getElementById("estabelecimento").value;
-  const preco = document.getElementById("preco").value;
+  const produtoInput = document.getElementById("produto");
+  const estabelecimentoInput = document.getElementById("estabelecimento");
+  const precoInput = document.getElementById("preco");
 
+  const produto = produtoInput.value;
+  const estabelecimento = estabelecimentoInput.value;
+  const preco = precoInput.value;
+
+  if (produto === "" || estabelecimento === "" || preco === "") {
+    return; // Impede o envio do formulário
+  }
   // Enviar dados via AJAX
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "../controllers/processar_cadastro_preco.php", true);
@@ -159,6 +207,10 @@ function enviarPreco() {
       if (xhr.responseText === "success") {
         const mensagemSucesso = document.getElementById("mensagem-sucesso");
         const manter = document.getElementById("overlay2");
+
+        produtoInput.value = "";
+        estabelecimentoInput.value = "";
+        precoInput.value = "";
 
         mensagemSucesso.style.display = "block";
         manter.style.display = "block";

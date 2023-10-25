@@ -192,13 +192,13 @@
             <h1>Cadastro de Preço</h1>
             <form action="processar_cadastro_preco.php" method="post" id="botao2">
                 <label for="produto">Selecione o Produto:</label>
-                <select id="produto" name="produto">
+                <select id="produto" name="produto" required>
                     <?php
                     include '../controllers/nomeProduto.php';
                     ?>
                 </select>
                 <label for="estabelecimento">Selecione o Estabelecimento:</label>
-                <select id="estabelecimento" name="estabelecimento">
+                <select id="estabelecimento" name="estabelecimento" required>
                     <?php
                     include '../controllers/nomeEstabelecimento.php';
                     ?>

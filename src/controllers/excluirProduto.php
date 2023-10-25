@@ -25,4 +25,5 @@ if (isset($_POST['Id'])) {
     } else {
         echo 'Falha ao preparar a consulta.';
     }
+    $dbConnection->close();
 }

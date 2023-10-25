@@ -13,6 +13,7 @@ if ($resultEstabelecimentos->num_rows > 0) {
         echo '<option value="'.$row['nome_fantasia'].'">'.$row['nome_fantasia'].'</option>';
     }
 }
+$dbConnection->close();
 
 header('Content-Type: application/json');
 echo json_encode($productData1);
