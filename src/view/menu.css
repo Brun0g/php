@@ -65,7 +65,8 @@ input {
 .overlay,
 .overlay1,
 .overlay2,
-.overlay4 {
+.overlay4,
+.overlay5 {
     position: fixed;
     left: 0;
     top: 0;
@@ -87,7 +88,8 @@ input {
 }
 
 .popup1,
-.popup4 {
+.popup4,
+.popup5 {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -104,7 +106,8 @@ input {
 .popup1 h1,
 .popup2 h1,
 .popup3 h1,
-.popup4 h1 {
+.popup4 h1,
+.popup5 h1 {
     display: flex;
     justify-content: center;
     color: #fff;

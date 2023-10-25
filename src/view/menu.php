@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../view/cadastrarPreco/preco.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet">
+
 </head>
 <style>
 .product-container {
@@ -120,47 +121,89 @@
         </div>
         <div class="cont-dynamic-item">
             <ul>
-                <li> <a href="javascript:void(0);" onclick=openPopup()>Cadastro de Produtos</a>
+                <li><a href="javascript:void(0);" onclick="openPopupById('overlay');">Cadastro de Produtos</a></li>
                 </li>
             </ul>
             <ul>
-                <li> <a href="javascript:void(1);" onclick=openListaProdutos()>Listagem de Produtos</a>
+                <li> <a href="javascript:void(1);" onclick="openPopupById('overlay3');">Cadastrar Estabelecimentos</a>
                 </li>
             </ul>
             <ul>
-                <li> <a href="javascript:void(2);" onclick=openPopup1();>Cadastrar Estabelecimentos</a>
+                <li>
+                    <a href="javascript:void(2);" onclick="openPopupById('overlay2');">Cadastro de Preços</a>
                 </li>
             </ul>
             <ul>
-                <li> <a href="javascript:void(3);" onclick=openListaEstabelecimentos();>Listagem de Estabelecimentos</a>
+                <li> <a href="javascript:void(3);" onclick="openPopupById('overlay4');">Listagem de Estabelecimentos</a>
                 </li>
             </ul>
             <ul>
-                <li> <a href="javascript:void(3);" onclick=openPopup2();>Cadastro de Preços</a>
+                <li>
+                    <a href="javascript:void(4);" onclick="openPopupById('overlay1');">Listagem de Produtos</a>
                 </li>
             </ul>
             <ul>
-                <li> <a href="javascript:void(3);" onclick=openPopup2();>Menor Preço</a>
+                <li> <a href="javascript:void(5);" onclick="openPopupById('overlay5');">Menor Preço</a>
                 </li>
             </ul>
 
         </div>
     </section>
+    <!-- cadastro de produtos -->
     <div id="overlay" class="overlay" style="display: none">
         <div id="popup" class="popup">
-            <span class="close-button" onclick="closePopup();">X</span>
+            <span class="close-button" onclick="closePopupById('overlay');">X</span>
             <h1>Cadastro de Produto</h1>
             <form class="container-form" method="POST" id="botao">
                 <input type="text" id="nome" name="nome" placeholder="Nome do Produto" required>
                 <input type="text" id="marca" name="marca" placeholder="Marca" required>
                 <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" required>
-                <button type="submit" onclick="enviarFormulario();">Cadastrar</button>
+                <button type="submit" onclick="cadastrarProduto();">Cadastrar</button>
             </form>
         </div>
     </div>
+    <!-- cadastro estabelecimentos -->
+    <div id="overlay3" class="overlay3" style="display: none">
+        <div id="popup3" class="popup3">
+            <span class="close-button" onclick="closePopupById('overlay3');">X</span>
+            <h1>Cadastro Estabelecimentos</h1>
+            <form class="container-form" method="POST" id="botao1">
+                <input type="text" id="nome_fantasia" name="nome_fantasia" placeholder="Nome fantasia" required>
+                <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                <input type="number" id="numero_lojas" name="numero_lojas" placeholder="Número de lojas" required>
+                <button type="submit" onclick="cadastrarEstabelecimentos();">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    <!-- cadastro preco -->
+    <div id="overlay2" class="overlay2" style="display: none">
+        <div id="popup2" class="popup2">
+            <span class="close-button" onclick="closePopupById('overlay2');">X</span>
+            <h1>Cadastro de Preço</h1>
+            <form action="processar_cadastro_preco.php" method="post" id="botao2">
+                <label for="produto">Selecione o Produto:</label>
+                <select id="produto" name="produto" required>
+                    <?php
+                    include '../controllers/nomeProduto.php';
+                    ?>
+                </select>
+                <label for="estabelecimento">Selecione o Estabelecimento:</label>
+                <select id="estabelecimento" name="estabelecimento" required>
+                    <?php
+                    include '../controllers/nomeEstabelecimento.php';
+                    ?>
+                </select>
+                <label for="preco">Preço:</label>
+                <input type="text" id="preco" name="preco" placeholder="Informe o preço" required>
+                <button class="button5" type="submit" onclick="cadastrarPreco();">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    <!-- lista de produtos -->
     <div id="overlay1" class="overlay1" style="display: none">
         <div id="popup1" class="popup1">
-            <span class="close-button" onclick="closeListaProdutos();">X</span>
+            <span class="close-button" onclick="closePopupById('overlay1');">X</span>
             <h1>Lista de Produtos</h1>
             <div class="product">
                 <table>
@@ -186,45 +229,10 @@
             </div>
         </div>
     </div>
-    <div id="overlay2" class="overlay2" style="display: none">
-        <div id="popup2" class="popup2">
-            <span class="close-button" onclick="closePopup2();">X</span>
-            <h1>Cadastro de Preço</h1>
-            <form action="processar_cadastro_preco.php" method="post" id="botao2">
-                <label for="produto">Selecione o Produto:</label>
-                <select id="produto" name="produto" required>
-                    <?php
-                    include '../controllers/nomeProduto.php';
-                    ?>
-                </select>
-                <label for="estabelecimento">Selecione o Estabelecimento:</label>
-                <select id="estabelecimento" name="estabelecimento" required>
-                    <?php
-                    include '../controllers/nomeEstabelecimento.php';
-                    ?>
-                </select>
-                <label for="preco">Preço:</label>
-                <input type="text" id="preco" name="preco" placeholder="Informe o preço" required>
-                <button class="button5" type="submit" onclick="enviarPreco();">Cadastrar</button>
-            </form>
-        </div>
-    </div>
-    <div id="overlay3" class="overlay3" style="display: none">
-        <div id="popup3" class="popup3">
-            <span class="close-button" onclick=closePopup1()>X</span>
-            <h1>Cadastro Estabelecimentos</h1>
-            <form class="container-form" method="POST" id="botao1">
-                <input type="text" id="nome_fantasia" name="nome_fantasia" placeholder="Nome fantasia" required>
-                <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
-                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
-                <input type="number" id="numero_lojas" name="numero_lojas" placeholder="Número de lojas" required>
-                <button type="submit" onclick="enviarEstabelecimentos();">Cadastrar</button>
-            </form>
-        </div>
-    </div>
+    <!-- listagem de estabelecimentos -->
     <div id="overlay4" class="overlay4" style="display: none">
         <div id="popup4" class="popup4">
-            <span class="close-button" onclick="closePopup4();">X</span>
+            <span class="close-button" onclick="closePopupById('overlay4');">X</span>
             <h1>Lista de Estabelecimentos</h1>
             <div class="estabelecimento">
                 <table>
@@ -257,9 +265,13 @@
         <i class="fa fa-check-circle"></i>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="logic/dynamic.js">
-
-    </script>
+    <script src="logic/cadastrarProduto.js"></script>
+    <script src="logic/cadastrarEstabelecimento.js"></script>
+    <script src="logic/cadastrarPreco.js"></script>
+    <script src="logic/excluirEstabelecimento.js"></script>
+    <script src="logic/excluirProduto.js"></script>
+    <script src="logic/listaProdutos.js"></script>
+    <script src="logic/listaEstabelecimentos.js"></script>
     <script src="logic/botao.js"></script>
 </body>
 

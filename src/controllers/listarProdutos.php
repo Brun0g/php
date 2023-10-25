@@ -2,9 +2,10 @@
 
 include '../model/config.php';
 
-$query = 'SELECT nome, marca, quantidade, id FROM cadastrar_produto';
+$query = 'SELECT * FROM cadastrar_produto';
 $result = $dbConnection->query($query);
 
+// Preparar um array para armazenar os resultados
 $productData = [];
 
 if ($result->num_rows > 0) {
