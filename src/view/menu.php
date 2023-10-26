@@ -265,14 +265,14 @@
         <i class="fa fa-check-circle"></i>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="logic/cadastrarProduto.js"></script>
-    <script src="logic/cadastrarEstabelecimento.js"></script>
-    <script src="logic/cadastrarPreco.js"></script>
-    <script src="logic/excluirEstabelecimento.js"></script>
-    <script src="logic/excluirProduto.js"></script>
-    <script src="logic/listaProdutos.js"></script>
-    <script src="logic/listaEstabelecimentos.js"></script>
-    <script src="logic/botao.js"></script>
+    <script defer src="logic/cadastrarProduto.js"></script>
+    <script defer src="logic/cadastrarEstabelecimento.js"></script>
+    <script defer src="logic/cadastrarPreco.js"></script>
+    <script defer src="logic/excluirEstabelecimento.js"></script>
+    <script defer src="logic/excluirProduto.js"></script>
+    <script defer src="logic/listaProdutos.js"></script>
+    <script defer src="logic/listaEstabelecimentos.js"></script>
+    <script defer src="logic/botao.js"></script>
 </body>
 
 </html>

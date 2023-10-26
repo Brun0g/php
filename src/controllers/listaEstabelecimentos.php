@@ -2,7 +2,7 @@
 
 include '../model/config.php';
 
-$query = 'SELECT * FROM cadastrar_estabelecimentos';
+$query = 'SELECT id AS fk_estabelecimento, nome_fantasia, endereco, cidade, numero_lojas FROM cadastrar_estabelecimentos';
 $result = $dbConnection->query($query);
 
 // Preparar um array para armazenar os resultados

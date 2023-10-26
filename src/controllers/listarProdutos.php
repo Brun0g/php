@@ -2,7 +2,7 @@
 
 include '../model/config.php';
 
-$query = 'SELECT * FROM cadastrar_produto';
+$query = 'SELECT id AS fk_produto, nome, marca, quantidade FROM cadastrar_produto';
 $result = $dbConnection->query($query);
 
 // Preparar um array para armazenar os resultados

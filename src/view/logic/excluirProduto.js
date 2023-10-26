@@ -9,7 +9,7 @@ function excluirProduto(productId, row) {
 
   deleteRequest.open("POST", "../controllers/excluirProduto.php", true);
   var formData = new FormData();
-  formData.append("id", productId); // Usando o nome correto, que é "id"
+  formData.append("id fk_produto", productId); // Usando o nome correto, que é "id"
 
   deleteRequest.send(formData);
 }
