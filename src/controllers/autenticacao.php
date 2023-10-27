@@ -15,16 +15,27 @@ if (isset($_POST['login']) && isset($_POST['senha'])) {
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
+<<<<<<< HEAD
             $_SESSION['authenticated'] = true;
+=======
+>>>>>>> 4d7aa8813d3ecd820729eaaf086619aa7edc23fa
             header('Location: ../view/menu.php');
             exit;
         } else {
             echo 'Login falhou. Verifique suas credenciais.';
         }
 
+<<<<<<< HEAD
         $stmt->close();
     } else {
         throw new Exception('Error in query preparation: '.$dbConnection->error);
     }
     $dbConnection->close();
 }
+=======
+        $dbConnection->close();
+    } else {
+        throw new Exception('Error in query preparation: '.$dbConnection->error);
+    }
+}
+>>>>>>> 4d7aa8813d3ecd820729eaaf086619aa7edc23fa
