@@ -1,0 +1,42 @@
+php config.php
+colocar o arquivo do projeto na pasta C:\xampp\htdocs
+URL: http://localhost/PHP/index.html
+
+
+create table login_acesso (
+    id serial primary key,
+	login varchar(255) not null unique,
+    senha varchar(255) not null
+);
+
+insert into login_acesso (login, senha) values ('teste', '12345');
+
+CREATE TABLE cadastrar_produto (
+    id int not null auto_increment comment 'fk_produto',
+    nome VARCHAR(255) NOT NULL,
+    marca VARCHAR(100) NOT NULL,
+    quantidade INT NOT NULL,
+    constraint fk_produto primary key (id)
+);
+
+create table cadastrar_estabelecimentos (
+ id int not null auto_increment comment 'fk_estabelecimentos',
+ nome_fantasia varchar(255) not null,
+ endereco varchar(255) not null,
+ cidade text(255) not null,
+ numero_lojas int not null,
+ constraint fk_estabelecimentos primary key (id)
+);
+
+CREATE TABLE cadastro_preco (
+    id serial PRIMARY KEY,
+    produto_id INT,
+    estabelecimento_id INT,
+    preco DECIMAL(10, 2) NOT NULL,
+   constraint fk_produto foreign key (produto_id) references cadastrar_produto(id),
+   constraint fk_estabelecimentos foreign key (estabelecimento_id) references cadastrar_estabelecimentos(id)
+);
+ALTER TABLE cadastrar_produto CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE cadastrar_estabelecimento CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE cadastro_preco CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE login_acesso CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

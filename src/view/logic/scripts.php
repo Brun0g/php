@@ -1,0 +1,9 @@
+<script async src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script async src="./logic/cadastrarProduto1.js"></script>
+<script async src="./logic/cadastrarEstabelecimento1.js"></script>
+<script async src="./logic/cadastrarPreco1.js"></script>
+<script async src="./logic/excluirEstabelecimento1.js"></script>
+<script async src="./logic/excluirProduto1.js"></script>
+<script async src="./logic/listaProdutos1.js"></script>
+<script async src="./logic/listaEstabelecimentos1.js"></script>
+<script async src="./logic/botao.js"></script>
