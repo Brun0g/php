@@ -40,3 +40,6 @@ ALTER TABLE cadastrar_produto CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_u
 ALTER TABLE cadastrar_estabelecimento CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE cadastro_preco CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE login_acesso CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+ALTER TABLE login_acesso
+ADD nome varchar(255) not null;

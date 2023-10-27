@@ -2,9 +2,10 @@
 
 include '../model/config.php';
 
-$query = 'SELECT nome_fantasia, endereco, cidade, numero_lojas, id FROM cadastrar_estabelecimentos';
+$query = 'SELECT id, nome_fantasia, endereco, cidade, numero_lojas FROM cadastrar_estabelecimentos';
 $result = $dbConnection->query($query);
 
+// Preparar um array para armazenar os resultados
 $estabelecimentoData = [];
 
 if ($result->num_rows > 0) {

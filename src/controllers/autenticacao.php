@@ -15,14 +15,16 @@ if (isset($_POST['login']) && isset($_POST['senha'])) {
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
+            $_SESSION['authenticated'] = true;
             header('Location: ../view/menu.php');
             exit;
         } else {
             echo 'Login falhou. Verifique suas credenciais.';
         }
 
-        $dbConnection->close();
+        $stmt->close();
     } else {
         throw new Exception('Error in query preparation: '.$dbConnection->error);
     }
+    $dbConnection->close();
 }
