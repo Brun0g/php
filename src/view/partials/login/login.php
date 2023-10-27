@@ -18,8 +18,8 @@
                 <input type="text" name="login" placeholder="Nome" autocomplete="on">
                 <input type="password" name="senha" placeholder="Senha" autocomplete="current-password">
                 <button type="submit">Enviar</button>
+                <a href="../login/criarConta.php">CRIAR CONTA</a>
             </form>
-
         </form>
     </div>
 </body>
