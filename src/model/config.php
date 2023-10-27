@@ -2,7 +2,7 @@
 
 $dbhost = 'localhost';
 $dbUsername = 'root';
-$dbPassword = 'z^q*LE682@Ol7RHU3LjCYzg6A@9S7&BC9@vWUgul!xZ%Hd@Y8K';
+$dbPassword = '';
 $dbName = 'sistema_login';
 
 // Configure o tempo limite da sessão antes de iniciar a sessão
